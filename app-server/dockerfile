@@ -1,6 +1,7 @@
 FROM centos:7
+RUN yum update -y
 RUN yum install java-openjdk -y
-RUN  wget https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.82/bin/apache-tomcat-8.5.82.tar.gz
-RUN tar -xzf apache-tomcat-8.5.82.tar.gz  -C /opt
+RUN  curl -O https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.67/bin/apache-tomcat-9.0.67.tar.gz
+RUN tar -xzf apache-tomcat-9.0.67.tar.gz  -C /opt
 RUN mv /opt/apache-tomcat* /opt/apache-tomcat
 CMD ["/opt/apache-tomcat/bin/catalina.sh","start"]
